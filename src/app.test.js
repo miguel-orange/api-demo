@@ -14,21 +14,21 @@ const initApp = require('./app');
   // return Hello World
   // return as valid json
 
-// When I make a request to /books
+// When I make a request to /api/books
   // return an object with one book
   // return as valid json
   // 404 should be json, not HTML
 describe("App", () => {
   test("should test that supertest works", async() => {
-    const response = await request(initApp(app)).get('/books')
+    const response = await request(initApp(app)).get('/api/books')
     expect(response.status).toBe(200)
   })
   test("should test that supertest works", async() => {
-    const response = await request(initApp(app)).get('/books')
+    const response = await request(initApp(app)).get('/api/books')
     expect(response.status).toBe(200)
   })
   test.only("should respond with books body", async() => {
-    const response = await request(initApp(app)).get('/books')
+    const response = await request(initApp(app)).get('/api/books')
     expect(response.body).toEqual({
       books: [{
           author: "Migo", title: "How to break your first quadcopter in 30 seconds"
@@ -43,12 +43,6 @@ describe("App", () => {
     const response = await request(initApp(app)).get('/')
     const myVariable = JSON.parse(response.text)
     
-    let migo = "Miguel"
-    migo = "Miguel Amaro"
-    console.log(migo)// Miguel
-    console.log(migo === "Miguel")// true
-    console.log("Miguel" === "Miguel") // true
-    JSON.parse(response.text)
     expect(myVariable).toEqual([])
   })
 })

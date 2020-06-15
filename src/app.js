@@ -1,5 +1,5 @@
-const bookRoute = require('./src/routes/books');
-const authorRoute = require('./src/routes/authors');
+const bookRoute = require('./routes/books');
+const authorRoute = require('./routes/authors');
 
 module.exports = (app) => {
     app.get('/', (req, res) => res.send([]))
